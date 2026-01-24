@@ -1,22 +1,25 @@
 package Models;
 
 public abstract class Utilisateur {
+
+    protected int id;
     protected String nom;
     protected String prenom;
-    public Utilisateur() {}
+    protected String login;
+    protected String pwd;
 
-    public Utilisateur(String nom, String prenom) {
+    public Utilisateur(int id, String nom, String prenom, String login, String pwd) {
+        this.id = id;
         this.nom = nom;
         this.prenom = prenom;
+        this.login = login;
+        this.pwd = pwd;
     }
 
-    // Getters & Setters
+    public int getId() { return id; }
     public String getNom() { return nom; }
-    public void setNom(String nom) { this.nom = nom; }
-
     public String getPrenom() { return prenom; }
-    public void setPrenom(String prenom) { this.prenom = prenom; }
-
-    // Abstract method to return role (Pharmacien, Gestionnaire, etc.)
+    public String getLogin() { return login; }
+    public String getPwd() { return pwd; }
     public abstract String getRole();
 }

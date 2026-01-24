@@ -1,20 +1,24 @@
 package Models;
 
-public class Client extends Utilisateur {
+public class Client {
 
     private int idClient;
+    private String nom;
+    private String prenom;
     private String email;
-    private String adresse;
+    private String address;
+
 
     public Client() {
         super();
     }
 
     public Client(int idClient, String nom, String prenom, String email, String addresse) {
-        super(nom, prenom);
+        this.nom = nom;
+        this.prenom = prenom;
         this.idClient = idClient;
         this.email = email;
-        this.adresse = addresse;
+        this.address = addresse;
     }
 
     public String getRole() {
@@ -28,8 +32,8 @@ public class Client extends Utilisateur {
     public String getEmail() { return email; }
     public void setEmail(String email) { this.email = email; }
 
-    public String getAdresse() { return adresse; }
-    public void setAdresse(String adresse) { this.adresse = adresse; }
+    public String getAddress() { return address; }
+    public void setAddress(String address) { this.address = address; }
 
     public String toString() {
         return "Client{" +
@@ -37,7 +41,7 @@ public class Client extends Utilisateur {
                 ", nom='" + nom + '\'' +
                 ", prenom='" + prenom + '\'' +
                 ", email='" + email + '\'' +
-                ", adresse='" + adresse + '\'' +
+                ", address='" + address + '\'' +
                 '}';
     }
 }

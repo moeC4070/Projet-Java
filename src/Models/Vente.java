@@ -1,6 +1,7 @@
 package Models;
 
 import java.time.LocalDate;
+import java.util.Date;
 
 public class Vente {
 
@@ -9,11 +10,11 @@ public class Vente {
     private int idClient;
     private int idMedicament;
     private int quantite;
-    private LocalDate date;
+    private Date date;
 
     public Vente() {}
 
-    public Vente(int idVente, int idPharmacien, int idClient, int idMedicament, int quantite, LocalDate date) {
+    public Vente(int idVente, int idPharmacien, int idClient, int idMedicament, int quantite, Date date) {
         this.idVente = idVente;
         this.idPharmacien = idPharmacien;
         this.idClient = idClient;
@@ -37,8 +38,8 @@ public class Vente {
     public int getQuantite() { return quantite; }
     public void setQuantite(int quantite) { this.quantite = quantite; }
 
-    public LocalDate getDate() { return date; }
-    public void setDate(LocalDate date) { this.date = date; }
+    public Date getDate() { return date; }
+    public void setDate(Date date) { this.date = date; }
 
     public String toString() {
         return "Vente{" +
