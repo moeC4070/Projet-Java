@@ -19,7 +19,5 @@ public abstract class Utilisateur {
     public int getId() { return id; }
     public String getNom() { return nom; }
     public String getPrenom() { return prenom; }
-    public String getLogin() { return login; }
-    public String getPwd() { return pwd; }
     public abstract String getRole();
 }

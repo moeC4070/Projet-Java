@@ -1,8 +1,9 @@
 import service.Authentification;
 import service.GererCommande;
 import service.GererStock;
-import Models.Utilisateur;
 import service.GererVente;
+import service.Rapport;
+import Models.Utilisateur;
 
 import java.util.Scanner;
 
@@ -42,10 +43,12 @@ public class Main {
         int choix;
 
         do {
+            System.out.println("\n--- MENU PHARMACIEN ---");
             System.out.println("1. Enregistrer une vente");
             System.out.println("2. Annuler une vente");
-            System.out.println("3. Consulter les ventes");
-            System.out.println("4. Consulter le profil");
+            System.out.println("3. Consulter toutes les ventes");
+            System.out.println("4. Consulter ventes par critère");
+            System.out.println("5. Consulter le profil");
             System.out.println("0. Déconnexion");
 
             System.out.print("Choix : ");
@@ -63,9 +66,15 @@ public class Main {
                 case 3:
                     GererVente.consulterVentes();
                     break;
+
                 case 4:
+                    GererVente.consulterVentesParCritere();
+                    break;
+
+                case 5:
                     afficherProfil(user);
                     break;
+
                 case 0:
                     System.out.println("Déconnexion...");
                     break;
@@ -90,6 +99,8 @@ public class Main {
             System.out.println("4. Consulter profil");
             System.out.println("5. Passer une commande");
             System.out.println("6. Consulter les commandes");
+            System.out.println("7. Consulter historique du stock");
+            System.out.println("8. Rapports statistiques (ventes)");
             System.out.println("0. Déconnexion");
 
             System.out.print("Choix : ");
@@ -106,27 +117,39 @@ public class Main {
                     int id = sc.nextInt();
                     System.out.print("Nouveau stock : ");
                     int stock = sc.nextInt();
-
-                    if (BD.MedicamentBD.miseStock(id, stock)) {
-                        System.out.println("✅ Stock mis à jour");
-                    } else {
-                        System.out.println("❌ Échec mise à jour");
-                    }
+                    GererStock.miseAJourStock(id, stock);
                     break;
 
                 case 3:
-                    System.out.println("➡️ Stock critique (à afficher)");
+                    GererStock.verifierStockCritique();
                     break;
 
                 case 4:
                     afficherProfil(user);
                     break;
+
                 case 5:
                     GererCommande.ajouterCommande(user.getId());
                     break;
+
                 case 6:
                     GererCommande.consulterCommandes();
                     break;
+
+                case 7:
+                    System.out.print("ID médicament : ");
+                    int idMed = sc.nextInt();
+                    try (var conn = JDBC.JDBConnection.getConnection()) {
+                        new BD.StockHistoriqueBD(conn).printHistoryByMedicament(idMed);
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                    break;
+
+                case 8:
+                    Rapport.ventesParMedicament();
+                    break;
+
                 case 0:
                     System.out.println("Déconnexion...");
                     break;
