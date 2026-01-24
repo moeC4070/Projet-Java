@@ -4,11 +4,10 @@ import java.time.LocalDate;
 
 public class StockHistorique {
 
-    private int idMedicament;
-    private int quantite;
-    private LocalDate date;
+    private final int idMedicament;
+    private final int quantite;
+    private final LocalDate date;
 
-    public StockHistorique() {}
 
     public StockHistorique(int idMedicament, int quantite, LocalDate date) {
         this.idMedicament = idMedicament;
@@ -17,13 +16,10 @@ public class StockHistorique {
     }
 
     public int getIdMedicament() { return idMedicament; }
-    public void setIdMedicament(int idMedicament) { this.idMedicament = idMedicament; }
 
     public int getQuantite() { return quantite; }
-    public void setQuantite(int quantite) { this.quantite = quantite; }
 
     public LocalDate getDate() { return date; }
-    public void setDate(LocalDate date) { this.date = date; }
 
     public String toString() {
         return "StockHistorique{" +

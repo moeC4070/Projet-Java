@@ -1,6 +1,6 @@
 package Models;
 
-import java.time.LocalDate;
+
 import java.util.Date;
 
 public class Commande {
@@ -34,7 +34,6 @@ public class Commande {
     public void setQuantite(int quantite) { this.quantite = quantite; }
 
     public Date getDate() { return date; }
-    public void setDate(Date date) { this.date = date; }
 
     public String toString() {
         return "Commande{" +

@@ -36,8 +36,6 @@ public class Main {
             System.out.println("Rôle inconnu.");
         }
     }
-
-    // ================= PHARMACIEN =================
     private static void menuPharmacien(Scanner sc, Utilisateur user) {
 
         int choix;
@@ -86,7 +84,6 @@ public class Main {
         } while (choix != 0);
     }
 
-    // ================= GESTIONNAIRE =================
     private static void menuGestionnaire(Scanner sc, Utilisateur user) {
 
         int choix;
@@ -161,7 +158,6 @@ public class Main {
         } while (choix != 0);
     }
 
-    // ================= PROFIL =================
     private static void afficherProfil(Utilisateur user) {
 
         System.out.println("\n--- PROFIL UTILISATEUR ---");

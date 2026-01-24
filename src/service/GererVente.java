@@ -1,6 +1,8 @@
 package service;
 
+import BD.ClientBD;
 import BD.VenteBD;
+import Models.Client;
 import Models.Vente;
 
 import java.sql.Date;
@@ -16,6 +18,12 @@ public class GererVente {
 
         System.out.print("ID client : ");
         int idClient = sc.nextInt();
+
+        Client client = ClientBD.getClientById(idClient);
+        if (client == null) {
+            System.out.println("❌ Client introuvable !");
+            return;
+        }
 
         System.out.print("ID médicament : ");
         int idMed = sc.nextInt();

@@ -13,7 +13,7 @@ public class VenteBD {
 
         String sql =
                 "INSERT INTO vente " +
-                        "(id_vente, id_pharmacien, id_client, id_medicament, quantite, date) " +
+                        "(idVente, idPharmacien, idClient, idMedicament, qte, date) " +
                         "VALUES (?, ?, ?, ?, ?, CURDATE())";
 
         try (Connection conn = JDBConnection.getConnection();
@@ -38,7 +38,7 @@ public class VenteBD {
 
     public static boolean annulerVente(int idVente) {
 
-        String sql = "DELETE FROM vente WHERE id_vente = ?";
+        String sql = "DELETE FROM vente WHERE idVente = ?";
 
         try (Connection conn = JDBConnection.getConnection();
              PreparedStatement ps = conn.prepareStatement(sql)) {
@@ -67,7 +67,7 @@ public class VenteBD {
                         rs.getInt("idPharmacien"),
                         rs.getInt("idClient"),
                         rs.getInt("idMedicament"),
-                        rs.getInt("quantite"),
+                        rs.getInt("qte"),
                         rs.getDate("date")
                 ));
             }
@@ -80,7 +80,7 @@ public class VenteBD {
 
     private static int getNextId() {
 
-        String sql = "SELECT MAX(id_vente) FROM vente";
+        String sql = "SELECT MAX(idVente) FROM vente";
 
         try (Connection conn = JDBConnection.getConnection();
              PreparedStatement ps = conn.prepareStatement(sql);
@@ -98,7 +98,7 @@ public class VenteBD {
     // Get ventes by client
     public static List<Vente> getVentesByClient(int idClient) {
         List<Vente> list = new ArrayList<>();
-        String sql = "SELECT * FROM vente WHERE id_client = ?";
+        String sql = "SELECT * FROM vente WHERE idClient = ?";
 
         try (Connection conn = JDBConnection.getConnection();
              PreparedStatement ps = conn.prepareStatement(sql)) {
@@ -106,11 +106,11 @@ public class VenteBD {
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
                 list.add(new Vente(
-                        rs.getInt("id_vente"),
-                        rs.getInt("id_pharmacien"),
-                        rs.getInt("id_client"),
-                        rs.getInt("id_medicament"),
-                        rs.getInt("quantite"),
+                        rs.getInt("idVente"),
+                        rs.getInt("idPharmacien"),
+                        rs.getInt("idClient"),
+                        rs.getInt("idMedicament"),
+                        rs.getInt("qte"),
                         rs.getDate("date")
                 ));
             }
@@ -123,7 +123,7 @@ public class VenteBD {
     // Get ventes by medicament
     public static List<Vente> getVentesByMedicament(int idMedicament) {
         List<Vente> list = new ArrayList<>();
-        String sql = "SELECT * FROM vente WHERE id_medicament = ?";
+        String sql = "SELECT * FROM vente WHERE idMedicament = ?";
 
         try (Connection conn = JDBConnection.getConnection();
              PreparedStatement ps = conn.prepareStatement(sql)) {
@@ -131,11 +131,11 @@ public class VenteBD {
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
                 list.add(new Vente(
-                        rs.getInt("id_vente"),
-                        rs.getInt("id_pharmacien"),
-                        rs.getInt("id_client"),
-                        rs.getInt("id_medicament"),
-                        rs.getInt("quantite"),
+                        rs.getInt("idVente"),
+                        rs.getInt("idPharmacien"),
+                        rs.getInt("idClient"),
+                        rs.getInt("idMedicament"),
+                        rs.getInt("qte"),
                         rs.getDate("date")
                 ));
             }
@@ -157,11 +157,11 @@ public class VenteBD {
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
                 list.add(new Vente(
-                        rs.getInt("id_vente"),
-                        rs.getInt("id_pharmacien"),
-                        rs.getInt("id_client"),
-                        rs.getInt("id_medicament"),
-                        rs.getInt("quantite"),
+                        rs.getInt("idVente"),
+                        rs.getInt("idPharmacien"),
+                        rs.getInt("idClient"),
+                        rs.getInt("idMedicament"),
+                        rs.getInt("qte"),
                         rs.getDate("date")
                 ));
             }

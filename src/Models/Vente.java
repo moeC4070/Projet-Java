@@ -1,6 +1,5 @@
 package Models;
 
-import java.time.LocalDate;
 import java.util.Date;
 
 public class Vente {
@@ -39,7 +38,6 @@ public class Vente {
     public void setQuantite(int quantite) { this.quantite = quantite; }
 
     public Date getDate() { return date; }
-    public void setDate(Date date) { this.date = date; }
 
     public String toString() {
         return "Vente{" +
