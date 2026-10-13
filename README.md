@@ -20,13 +20,6 @@ Gestion du code source : Git et GitHub
 
 Les technologies et bibliothèques exactes seront précisées après vérification du code source.
 
-📂 Structure du projet
-Projet-Java/
-├── conception/   # Documents de conception du projet
-├── lib/          # Bibliothèques et dépendances
-├── src/          # Code source Java
-├── .gitignore
-└── Pharmacie.iml # Configuration du projet IntelliJ IDEA
 
 🚀 Installation et exécution
 Prérequis
