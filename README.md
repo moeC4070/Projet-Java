@@ -48,6 +48,3 @@ moeC4070
 
 GitHub : @moeC4070
 Projet : Projet-Java
-📄 Licence
-
-Aucune licence n'a été spécifiée dans cette documentation. Ajoutez une licence si vous souhaitez définir les conditions de réutilisation et de distribution du projet.
